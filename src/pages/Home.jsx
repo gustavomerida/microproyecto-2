@@ -1,12 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
+import AppLayout from '../layout/AppLayout'
 
-function Home() {
+export default function Home() {
   return (
-    <div>
-      <h1>Esta es la página principal</h1>
-    </div>
+      <AppLayout>
+        <h1>Esta es la página principal</h1>
+
+      </AppLayout>
+    
   )
 }
 
-export default Home

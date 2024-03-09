@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { useEffect } from 'react'
@@ -7,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { logOut } from '../controllers/auth'
 
 
-export default function AppLayout(children) {
+export default function AppLayout({children}) {
     const user = useUser();
     const navigate = useNavigate();
 
@@ -23,7 +24,7 @@ export default function AppLayout(children) {
       <nav>
         <div></div>
         <div>
-            <Button onClick={logOut()}>Cerrar sesión</Button>
+            <button onClick={()=>logOut()}>Cerrar sesión</button>
         </div>
       </nav>
       <main>{children}</main>
