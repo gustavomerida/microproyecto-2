@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { loadGameData, loadClubData } from "../services/importData";
+import React from "react";
+import AppLayout from "../layout/AppLayout";
 
 /* eslint-disable no-unused-vars */
 export default function Home() {
@@ -15,16 +17,18 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <h1>Esta es la página principal jeje</h1>
-      <input value={id} onChange={(e) => setID(e.target.value)} />
-      <input value={title} onChange={(e) => setTitle(e.target.value)} />
-      <input value={gender} onChange={(e) => setGender(e.target.value)} />
-      <input
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <button onClick={handleSubmit}>Enviar</button>
-    </div>
+    <AppLayout>
+      <div>
+        <h1>Esta es la página principal jeje</h1>
+        <input value={id} onChange={(e) => setID(e.target.value)} />
+        <input value={title} onChange={(e) => setTitle(e.target.value)} />
+        <input value={gender} onChange={(e) => setGender(e.target.value)} />
+        <input
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <button onClick={handleSubmit}>Enviar</button>
+      </div>
+    </AppLayout>
   );
 }
