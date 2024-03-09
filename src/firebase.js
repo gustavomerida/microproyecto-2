@@ -3,7 +3,11 @@
 // eslint-disable-next-line no-unused-vars
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getAuth, GoogleAuthProvider, browserLocalPersistence } from "firebase/auth";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  browserLocalPersistence,
+} from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -27,4 +31,4 @@ export const storage = getStorage(app);
 export const googleProvider = new GoogleAuthProvider();
 
 auth.setPersistence(browserLocalPersistence);
-googleProvider.setCustomParameters({prompt: 'select_account'})
+googleProvider.setCustomParameters({ prompt: "select_account" });
