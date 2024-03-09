@@ -1,54 +1,54 @@
 .loginContainer {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
 .loginTitle {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .formInput {
-    width: 90%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin: 0px auto 20px auto;
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0px auto 20px auto;
 }
 
 .loginButton {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 25px; /* Agrega margen inferior para separar los botones */
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 25px; /* Agrega margen inferior para separar los botones */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .loginButton:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .socialButton {
-    display: inline-block;
-    padding: 10px 15px;
-    margin-right: 10px;
-    margin-bottom: 10px; /* Agrega margen inferior para separar los botones */
-    background-color: #3b5998; /* Facebook color */
-    color: white;
-    border: none;
-    border-radius: 3px;
+  display: inline-block;
+  padding: 10px 15px;
+  margin-right: 10px;
+  margin-bottom: 10px; /* Agrega margen inferior para separar los botones */
+  background-color: #3b5998; /* Facebook color */
+  color: white;
+  border: none;
+  border-radius: 3px;
 }
 
 .socialButton:hover {
-    background-color: #2d4373; /* Darker Facebook color on hover */
+  background-color: #2d4373; /* Darker Facebook color on hover */
 }
