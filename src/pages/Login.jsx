@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import styles from './Login.module.css'
-import { loginWithCredentials, loginWithGoogle } from '../controllers/auth';
+import { loginWithCredentials, } from '../controllers/auth';
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { auth, googleProvider } from '../firebase';
+import {signInWithPopup, signInWithRedirect} from 'firebase/auth'
 //import Input from '../components/Input'
 //import Button from '../components/Button'
 import { useUser } from '../context/user'
@@ -34,7 +36,7 @@ function Login() {
   };
 
   const handleLogin_Google = async ()=> {
-    const user = await loginWithGoogle();
+    const user = await signInWithRedirect(auth, googleProvider);
     if (user!== null){
         navigate('/');
         console.log(user)

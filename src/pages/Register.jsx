@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom'
 import { useUser } from '../context/user'
 import { registerWithCredentials } from '../controllers/auth'
 import styles from './Register.module.css'
+import { auth, googleProvider } from '../firebase';
+import {signInWithPopup, signInWithRedirect} from 'firebase/auth'
 
 function Register() {
 
@@ -27,11 +29,24 @@ function Register() {
 
     const handleLogin = async ()=> {
         const user = await registerWithCredentials(email, password);
+
+        //Aplicar lógica para guardar datos de usuario...
+
         if (user!== null){
             navigate('/');
             console.log(user)
         }else{
             alert("No se pudo crear la cuenta");
+        }
+    };
+
+    const handleLogin_Google = async ()=> {
+        const user = await signInWithRedirect(auth, googleProvider);
+        if (user!== null){
+            navigate('/');
+            console.log(user)
+        }else{
+            alert("No se pudo iniciar sesión");
         }
     };
 
@@ -49,7 +64,7 @@ function Register() {
         <input className={styles.formInput} type="password" placeholder="Contraseña" onChange={(e)=>setPassword(e.target.value)}/> {/* Aplica la clase de estilo al input */}
         <button type="button" className={styles.loginButton} onClick={handleLogin} >Iniciar Sesión con Email</button> {/* Aplica la clase de estilo al botón */}
     </form>
-    <button type="button" className={styles.socialButton} >Iniciar Sesión con Google</button> {/* Aplica la clase de estilo al botón */}
+    <button type="button" className={styles.socialButton} onClick={handleLogin_Google}>Iniciar Sesión con Google</button> {/* Aplica la clase de estilo al botón */}
     <button type="button" className={styles.socialButton} >Iniciar Sesión con Facebook</button> {/* Aplica la clase de estilo al botón */}
     </div>
   )
