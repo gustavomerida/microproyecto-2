@@ -13,18 +13,12 @@ export default function AppLayout({ children }) {
 
   useEffect(() => {
     if (!user) {
-      navigate("/register", { replace: true });
+      navigate("/club", { replace: true });
     }
   }, [user, navigate]);
 
   return (
     <div>
-      <nav>
-        <div>Aqui estará la navbar</div>
-        <div>
-          <button onClick={() => logOut()}>Cerrar sesión</button>
-        </div>
-      </nav>
       <main>{children}</main>
     </div>
   );

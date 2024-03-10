@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import AppLayout from "./layout/AppLayout";
 import Register2 from "./pages/Register2";
 import ShowClubes from "./pages/ShowClubes";
+import Club from "./pages/Club";
 
 export const router = createBrowserRouter([
   {
@@ -31,5 +32,9 @@ export const router = createBrowserRouter([
   {
     path: "/clubs",
     element: <ShowClubes />,
+  },
+  {
+    path: "/club",
+    element: <Club />,
   },
 ]);
