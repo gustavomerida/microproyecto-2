@@ -1,0 +1,86 @@
+body {
+  background-image: url("/src/assets/images/Club/1.jpg");
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 32px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  background-color: #1a1a1a;
+  padding: 10px;
+  color: white;
+  box-shadow: 0px 5px 5px -5px #000;
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.backButton {
+  color: #3498db;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.container {
+  padding: 24px;
+  gap: 20px;
+  background-color: white;
+  border-radius: 15px;
+  width: 650px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.clubDetails {
+  text-align: center;
+}
+
+.clubImage {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.subscribeButton {
+  background-color: #2ecc71;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.gamesContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.gameCard {
+  text-align: center;
+  max-width: 200px;
+}
+
+.gameImage {
+  width: 100%;
+  height: auto;
+}
+.gameImage {
+  width: 100%;
+  height: auto;
+}
