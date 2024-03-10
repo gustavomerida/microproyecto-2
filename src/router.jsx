@@ -7,6 +7,7 @@ import AppLayout from "./layout/AppLayout";
 import Register2 from "./pages/Register2";
 import ShowClubes from "./pages/ShowClubes";
 import ProfileEditor from "./pages/ProfileEditor";
+import Search from "./pages/Search";
 
 export const router = createBrowserRouter([
   {
@@ -28,5 +29,9 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/search",
+    element: <Search />,
   },
 ]);

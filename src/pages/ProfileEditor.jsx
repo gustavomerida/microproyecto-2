@@ -13,11 +13,8 @@ function ProfileEditor() {
 
   const user = useUser();
   const navigate = useNavigate();
-  
   const [users, setUsers] = useState([]);
-  
   const [usernameInput, setUsernameInput] = useState("");
-
   const [nameInput, setNameInput] = useState("cargando...");
   const [last_name, setLast_name] = useState("");
   const [selectedGame, setSelectedGame] = useState("");
