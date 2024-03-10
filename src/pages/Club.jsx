@@ -3,6 +3,7 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import styles from "../components/Club.module.css";
 import fetchGameDetails from "../services/videogames.js";
+import AppLayout from "../layout/AppLayout.jsx";
 
 export default function Club() {
   const [clubData, setClubData] = useState();
@@ -60,6 +61,7 @@ export default function Club() {
 
   return (
     <>
+    <AppLayout>
       <div className={styles.container}>
         <div>
           <button className={styles.backButton}>Regresar</button>
@@ -109,6 +111,7 @@ export default function Club() {
           }
         `}
       </style>
+    </AppLayout>
     </>
   );
 }
