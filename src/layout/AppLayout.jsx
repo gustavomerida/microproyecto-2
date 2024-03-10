@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import { useUser } from "../context/user";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "../controllers/auth";
+import NavigationBar from "../components/NavigationBar";
 
 export default function AppLayout({ children }) {
   
@@ -29,12 +30,8 @@ export default function AppLayout({ children }) {
 
   return (
     <div>
-      <nav>
-        <div>Aquí estará la barra de navegación</div>
-        <div>
+        <NavigationBar></NavigationBar>
           <button onClick={() => logOut()}>Cerrar sesión</button>
-        </div>
-      </nav>
       <main>{children}</main>
     </div>
   );

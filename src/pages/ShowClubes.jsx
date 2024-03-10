@@ -1,44 +1,70 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { collection, query, getDoc, doc, getDocs } from "firebase/firestore";
-import { loadClubData } from '../services/importData';
+import { collection, query, getDocs } from "firebase/firestore";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import ClubCard from '../components/ClubCard';
 import { db } from '../firebase';
-import styles from './ShowClubes.module.css'
+import styles from './ShowClubes.module.css';
 import AppLayout from "../layout/AppLayout";
 
 function ShowClubes() {
     const [clubs, setClubs] = useState([]);
 
-  useEffect(() => {
-    const fetchClubData = async () => {
-      try {
-          const clubsCollection = collection(db, "clubs");
-          const clubsQuery = query(clubsCollection);
-        const clubDataSnapshot = await getDocs(clubsQuery); 
-        const clubData = clubDataSnapshot.docs.map((doc) => ({id : doc.id,
-            ...doc.data()})); 
-        setClubs(clubData); 
-      } catch (error) {
-        console.error('Error al cargar los datos de clubes:', error);
-      }
-    };
+    useEffect(() => {
+        const fetchClubData = async () => {
+            try {
+                const clubsCollection = collection(db, "clubs");
+                const clubsQuery = query(clubsCollection);
+                const clubDataSnapshot = await getDocs(clubsQuery);
+                const clubData = clubDataSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+                setClubs(clubData);
+            } catch (error) {
+                console.error('Error al cargar los datos de clubes:', error);
+            }
+        };
 
         fetchClubData();
     }, []); // Se ejecuta solo una vez al montar el componente
 
-    console.log(clubs)
+    console.log(clubs);
 
-      return (
-        <AppLayout>
-            <div className={styles.container}>
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
+
+    return (
+        <div className={styles.container}>
+            <Slider {...settings}>
                 {clubs.map(club => (
                     <div key={club.id} className={styles.card}>
-                    <ClubCard club={club} isSubscribed={false} />
+                        <ClubCard club={club} isSubscribed={false} />
                     </div>
                 ))}
-            </div>
-        </AppLayout>
-      )
-    }
-export default ShowClubes
+            </Slider>
+        </div>
+    );
+}
+
+export default ShowClubes;
