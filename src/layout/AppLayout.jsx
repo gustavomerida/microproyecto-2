@@ -31,7 +31,6 @@ export default function AppLayout({ children }) {
   return (
     <div>
         <NavigationBar></NavigationBar>
-          <button onClick={() => logOut()}>Cerrar sesión</button>
       <main>{children}</main>
     </div>
   );
