@@ -8,10 +8,6 @@ import ShowClubes from './pages/ShowClubes'
 
 export const router = createBrowserRouter([
     {
-        path:'/user/profile',
-        element:<Home/>
-    },
-    {
         path:'/login',
         element:<Login/>
     },

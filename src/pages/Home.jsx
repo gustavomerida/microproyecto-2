@@ -1,8 +1,11 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { loadGameData, loadClubData } from "../services/importData";
 import React from "react";
 import AppLayout from "../layout/AppLayout";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/user";
+
 
 export default function Home() {
   const [id, setID] = useState("");
@@ -16,6 +19,16 @@ export default function Home() {
     alert("Pelicula creada");
   }
 
+  const user = useUser();
+  const navigate = useNavigate();
+
+  const vistaClubs=() => {
+    if (user) {
+      navigate("/clubs", { replace: true });
+      console.log(user);
+    }
+  };
+
   return (
     <AppLayout>
       <div>
@@ -28,6 +41,7 @@ export default function Home() {
           onChange={(e) => setDescription(e.target.value)}
         />
         <button onClick={handleSubmit}>Enviar</button>
+        <div><button onClick={vistaClubs}>Ver Clubs</button></div>
       </div>
     </AppLayout>
   );

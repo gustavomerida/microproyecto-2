@@ -52,3 +52,8 @@
 .socialButton:hover {
     background-color: #2d4373; /* Darker Facebook color on hover */
 }
+
+.mensaje{
+    font-size: 10px;
+    color: rgb(66, 64, 64)
+}

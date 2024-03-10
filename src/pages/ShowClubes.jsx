@@ -30,7 +30,7 @@ function ShowClubes() {
     console.log(clubs)
 
       return (
-
+        <AppLayout>
             <div className={styles.container}>
                 {clubs.map(club => (
                     <div key={club.id} className={styles.card}>
@@ -38,7 +38,7 @@ function ShowClubes() {
                     </div>
                 ))}
             </div>
-
+        </AppLayout>
       )
     }
 export default ShowClubes
