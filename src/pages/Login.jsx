@@ -97,6 +97,9 @@ function Login() {
         Iniciar Sesión con Facebook
       </button>{" "}
       {/* Aplica la clase de estilo al botón */}
+      <div className={styles.mensaje}>
+        ¿No tienes cuenta?. <a href='./register'>Registrarse</a>
+      </div>
     </div>
   );
 }
