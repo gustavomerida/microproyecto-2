@@ -175,6 +175,9 @@ function Register() {
         Iniciar Sesión con Facebook
       </button>{" "}
       {/* Aplica la clase de estilo al botón */}
+      <div className={styles.mensaje}>
+        ¿Ya tienes una cuenta?. <a href='./login'>Inicia sesión</a>
+      </div>
     </div>
   );
 }
