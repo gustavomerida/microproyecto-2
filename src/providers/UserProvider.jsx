@@ -10,7 +10,7 @@ export default function UserProvider( {children} ) {
     const [user, setUser] = useState(null)
 
     useEffect(()=> {
-        console.log('Hola')
+        console.log('AppLayout')
         onAuthStateChanged(auth, (user) => {
             console.log(user !== null ? "Usuario Loggeado": "Usuario no loggeaado");
             setUser(user);
