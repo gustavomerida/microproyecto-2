@@ -71,7 +71,7 @@ function Register() {
         });
       })
       .then(() => {
-        navigate("/");
+        navigate("/register2");
         console.log("Registro exitoso");
       })
       .catch((error) => {
@@ -103,7 +103,7 @@ function Register() {
       console.log("Nombre:", firstName);
       console.log("Apellido:", lastName);
       alert("Registro exitoso");
-      navigate("/");
+      navigate("/register2");
       console.log(user);
     } else if (!data.isNewUser) {
       navigate("/");

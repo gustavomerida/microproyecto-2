@@ -6,3 +6,9 @@ export async function createVideoGames({ id, title, gender, description }) {
   const data = { id, title, gender, description };
   await addDoc(gamesCollection, data);
 }
+
+export async function updateVideoGames({ id, title, gender, description }) {
+  const gamesCollection = collection(db, "videogames");
+  const data = { id, title, gender, description };
+  await addDoc(gamesCollection, data);
+}
