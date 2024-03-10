@@ -1,9 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { loadGameData, loadClubData } from "../services/importData";
 import React from "react";
 import AppLayout from "../layout/AppLayout";
 
-/* eslint-disable no-unused-vars */
 export default function Home() {
   const [id, setID] = useState("");
   const [title, setTitle] = useState("");
