@@ -40,8 +40,8 @@ function Register2() {
         const gamesSnapshot = await getDocs(gamesQuery);
 
         const gamesData = gamesSnapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
+          id: doc.id,
+          ...doc.data(),
         }));
         setGameOptions(gamesData);
       };
@@ -57,7 +57,7 @@ function Register2() {
       const usersCollection = collection(db, "users");
       const usernameQuery = query(
         usersCollection,
-        where("username", "==", usernameInput)
+        where("username", "==", usernameInput.toLowerCase())
       );
       const usernameSnapshot = await getDocs(usernameQuery);
 
@@ -67,9 +67,9 @@ function Register2() {
         );
       } else {
         updateUsers({
-          username: usernameInput,
+          username: usernameInput.toLowerCase(),
           videogame: selectedGame,
-          email: user.email,
+          email: user.email.toLowerCase(),
         });
         navigate("/");
         console.log("Registrando cambios en el usuario...");

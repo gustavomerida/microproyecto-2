@@ -1,0 +1,47 @@
+.cardContainer {
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  transition: transform 0.5s;
+  box-shadow: 40px 40px 40px rgba(0, 0, 0, 0.1);
+}
+
+.cardContainer.active {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cardTitle {
+  margin-bottom: 10px;
+  color: darkblue;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.cardDescription {
+  margin-bottom: 8px;
+  color: lightslategray;
+  font-size: 14px;
+}
+
+.cardImage {
+  width: 250px;
+  height: 150px;
+  margin-top: 20px;
+}
+
+.cardSubscription {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: black;
+  font-weight: bold;
+}
+
+.buttonClub {
+  color: darkblue;
+  border-color: black;
+  margin-top: 10px;
+}
