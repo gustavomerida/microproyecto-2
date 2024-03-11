@@ -8,6 +8,7 @@ import Register2 from "./pages/Register2";
 import ShowClubes from "./pages/ShowClubes";
 import Club from "./pages/Club";
 import ProfileEditor from "./pages/ProfileEditor";
+import Search from "./pages/Search";
 
 export const router = createBrowserRouter([
   {
@@ -32,7 +33,11 @@ export const router = createBrowserRouter([
   },
   { path: "/club/:id", element: <Club /> },
   {
-    path: "/clubs",
-    element: <ShowClubes />,
+    path: "/search",
+    element: <Search />,
+  },
+  {
+    path: "/club/:clubId",
+    element: <Club />,
   },
 ]);

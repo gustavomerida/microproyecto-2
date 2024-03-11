@@ -3,8 +3,8 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import styles from "../components/Club.module.css";
 import fetchGameDetails from "../services/videogames.js";
+import AppLayout from "../layout/AppLayout.jsx";
 import { useParams } from "react-router-dom";
-import AppLayout from "../layout/AppLayout";
 
 export default function Club() {
   const [clubData, setClubData] = useState();

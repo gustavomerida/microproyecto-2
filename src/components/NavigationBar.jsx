@@ -15,6 +15,7 @@ import { updateUsers } from "../services/users.js";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginBottom: '50px',
   },
   title: {
     flexGrow: 1,
@@ -22,29 +23,37 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+    width: '50%',
   },
-  search: {
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: theme.palette.common.white,
-    '&:hover': {
-      backgroundColor: theme.palette.common.white,
-    },
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
-      width: 'auto',
-    },
-  },
+  // search: {
+  //   position: 'relative',
+  //   borderRadius: theme.shape.borderRadius,
+  //   backgroundColor: theme.palette.common.white,
+  //   '&:hover': {
+  //     backgroundColor: theme.palette.common.white,
+  //   },
+  //   marginLeft: 0,
+  //   width: '100%',
+  //   [theme.breakpoints.up('sm')]: {
+  //     marginLeft: theme.spacing(1),
+  //     width: 'auto',
+  //   },
+  // },
   searchIcon: {
     padding: theme.spacing(0, 2),
     height: '100%',
-    position: 'absolute',
+    //position: 'absolute',
     pointerEvents: 'none',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    color: 'white',
+    cursor: 'pointer', 
+    position: 'relative',
+    backgroundColor: 'none',
+    '&:hover': {
+      backgroundColor: theme.palette.common.black,
+    }
   },
 }));
 
@@ -86,25 +95,26 @@ const NavigationBar = () => {
       
   }
 
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="home">
+          <a  href='/'>
+          <IconButton className={classes.searchIcon} edge="start" color="inherit" aria-label="home">
             <HomeIcon />
           </IconButton>
+          </a>
+          {/* <div className={classes.search}> */}
+            <a  href='/search'>
+            <IconButton className={classes.searchIcon}>
+                <SearchIcon />
+            </IconButton>
+            </a>
+          {/* </div> */}
           <Typography className={classes.title} variant="h6" noWrap>
             Gaming Clubs
           </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="  Buscar…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
           <IconButton edge="end" color="inherit" aria-label="profile" onClick={handleClick}>
             <AccountCircleIcon />
           </IconButton>
