@@ -121,7 +121,8 @@ function ProfileEditor() {
           name: nameInput,
           username: usernameInput,
           videogame: selectedGame,
-          email: user.email,
+          last_name: last_name,
+          //email: user.email,
         });
         navigate("/");
         alert("Perfil actualizado!")
@@ -174,7 +175,7 @@ function ProfileEditor() {
         className={styles.formInput}
         type="name"
         value={last_name}
-        onChange={handleLastNameChange}
+        onChange={(e) => setLast_name(e.target.value)}
         />
         
         <label>Nombre de usuario</label>
