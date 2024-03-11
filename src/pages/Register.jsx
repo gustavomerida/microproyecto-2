@@ -67,7 +67,7 @@ function Register() {
           username: "",
           email: emailInput,
           videogame: "",
-          memberships: "",
+          memberships: [],
         });
       })
       .then(() => {
@@ -97,7 +97,7 @@ function Register() {
         username: "",
         email: user.user.email,
         videogame: "",
-        memberships: "",
+        memberships: [],
       });
 
       console.log("Nombre:", firstName);
@@ -176,7 +176,7 @@ function Register() {
       </button>{" "}
       {/* Aplica la clase de estilo al botón */}
       <div className={styles.mensaje}>
-        ¿Ya tienes una cuenta?. <a href='./login'>Inicia sesión</a>
+        ¿Ya tienes una cuenta? <a href="./login">Inicia sesión</a>
       </div>
     </div>
   );
