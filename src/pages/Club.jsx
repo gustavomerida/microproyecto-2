@@ -4,6 +4,7 @@ import { db } from "../firebase";
 import styles from "../components/Club.module.css";
 import fetchGameDetails from "../services/videogames.js";
 import AppLayout from "../layout/AppLayout.jsx";
+import { useParams } from 'react-router-dom';
 
 export default function Club() {
   const [clubData, setClubData] = useState();
@@ -13,7 +14,7 @@ export default function Club() {
   const [backgroundImage, setBackgroundImage] = useState("");
   const [gameDetails, setGameDetails] = useState([]);
 
-  const clubId = "5";
+  const { clubId } = useParams();
 
   useEffect(() => {
     const fetchClubData = async () => {

@@ -36,7 +36,7 @@ export const router = createBrowserRouter([
     element: <Search />,
   },
   {
-    path: "/club",
+    path: '/club/:clubId',
     element: <Club />,
   },
 ]);

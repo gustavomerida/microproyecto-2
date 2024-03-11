@@ -15,6 +15,7 @@ import { updateUsers } from "../services/users.js";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginBottom: '50px',
   },
   title: {
     flexGrow: 1,

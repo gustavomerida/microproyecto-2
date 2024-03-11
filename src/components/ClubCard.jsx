@@ -8,7 +8,7 @@ export default function ClubCard({ club, isSubscribed }) {
     const navigate = useNavigate();
   
     const handleDetails = () => {
-        navigate(`/club/${club.ID}`);
+        navigate(`/club/${club.id}`);
     };
   
     return (
