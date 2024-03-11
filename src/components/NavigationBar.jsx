@@ -99,9 +99,11 @@ const NavigationBar = () => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="home">
+          <a  href='/'>
+          <IconButton className={classes.searchIcon} edge="start" color="inherit" aria-label="home">
             <HomeIcon />
           </IconButton>
+          </a>
           {/* <div className={classes.search}> */}
             <a  href='/search'>
             <IconButton className={classes.searchIcon}>

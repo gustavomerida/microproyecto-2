@@ -56,7 +56,7 @@ export default function Search(){
 
     return(
         <AppLayout>
-            <div>lol</div>
+            <div style={{color: 'white'}}>Aquí irá el listado de juegos y la vista de búsqueda !!!</div>
         </AppLayout>
     )
 }

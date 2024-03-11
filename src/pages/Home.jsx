@@ -31,7 +31,7 @@ export default function Home() {
 
   return (
     <AppLayout>
-        <h1>Esta es la página principal jeje</h1>
+        <h1 style={{color:'lightgray'}}>Clubs disponibles</h1>
       {/* Oculté el formualario */}
       <div style={{display: 'none'}}> 
         <input value={id} onChange={(e) => setID(e.target.value)} />
