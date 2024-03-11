@@ -15,22 +15,39 @@ function Register2() {
   const [usernameInput, setUsernameInput] = useState("");
   const [selectedGame, setSelectedGame] = useState("");
   const [gameOptions, setGameOptions] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchGameOptions = async () => {
-      const gamesCollection = collection(db, "videogames");
-      const gamesQuery = query(gamesCollection);
-      const gamesSnapshot = await getDocs(gamesQuery);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000); // Establece el temporizador en 3 segundos
 
-      const gamesData = gamesSnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setGameOptions(gamesData);
-    };
-
-    fetchGameOptions();
+    return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (!loading && user === null) {
+      navigate("/login", { replace: true });
+    }
+  }, [user, loading, navigate]);
+
+  useEffect(() => {
+    if (!loading && user !== null) {
+      const fetchGameOptions = async () => {
+        // Código para obtener opciones de juegos
+        const gamesCollection = collection(db, "videogames");
+        const gamesQuery = query(gamesCollection);
+        const gamesSnapshot = await getDocs(gamesQuery);
+
+        const gamesData = gamesSnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+        }));
+        setGameOptions(gamesData);
+      };
+      fetchGameOptions();
+    }
+  }, [user, loading]);
 
   const handleLogin = async () => {
     if (!usernameInput || !selectedGame) {
