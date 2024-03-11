@@ -1,0 +1,14 @@
+.gameCard {
+    margin: 20px auto 20px auto;
+    width: 45%; /* Ajusta el ancho según tus necesidades */
+  }
+
+  .gamesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .searchBar{
+    margin-bottom: 35px;
+  }

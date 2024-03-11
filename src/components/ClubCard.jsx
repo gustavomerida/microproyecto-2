@@ -7,10 +7,6 @@ import { useNavigate } from "react-router-dom";
 export default function ClubCard({ club, isSubscribed }) {
   const navigate = useNavigate();
 
-  const handleSubscribe = () => {
-    // Lógica para suscribirse al club
-  };
-
   const handleDetails = () => {
     navigate(`/club/${club.id}`);
     console.log(club.id);
@@ -24,9 +20,9 @@ export default function ClubCard({ club, isSubscribed }) {
         </Typography>
         <Typography color="textSecondary">{club.descripcion}</Typography>
         {/* <img src={club.image} alt={club.name} style={{ maxWidth: '100%', height: 'auto' }} /> */}
-        <Button variant="contained" color="primary" onClick={handleSubscribe}>
+        <div color="primary">
           {isSubscribed ? "Suscrito" : "Suscribirse"}
-        </Button>
+        </div>
         <Button variant="contained" color="secondary" onClick={handleDetails}>
           Ver club
         </Button>
