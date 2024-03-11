@@ -1,21 +1,30 @@
 import { useState, useEffect } from "react";
-import { getDoc, doc } from "firebase/firestore";
+import {
+  getDocs,
+  getDoc,
+  query,
+  collection,
+  where,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "../firebase";
 import styles from "../components/Club.module.css";
 import fetchGameDetails from "../services/videogames.js";
 import AppLayout from "../layout/AppLayout.jsx";
 import { useParams } from "react-router-dom";
+import { useUser } from "../context/user";
 
 export default function Club() {
   const [clubData, setClubData] = useState();
-  const [isSubscribed, setIsSubscribed] = useState();
-  const [userClubs, setUserClubs] = useState([]);
+  const [isSubscribed, setIsSubscribed] = useState(false);
   const [, setGameImageIds] = useState([]);
   const [backgroundImage, setBackgroundImage] = useState("");
   const [gameDetails, setGameDetails] = useState([]);
   const { id } = useParams();
 
   const clubId = id;
+  const user = useUser();
 
   useEffect(() => {
     const fetchClubData = async () => {
@@ -39,24 +48,86 @@ export default function Club() {
       }
     };
 
+    const checkSubscription = async () => {
+      if (user) {
+        try {
+          const userQuerySnapshot = await getDocs(
+            query(collection(db, "users"), where("email", "==", user.email))
+          );
+
+          if (userQuerySnapshot.size > 0) {
+            const userDocSnapshot = userQuerySnapshot.docs[0];
+            const userMemberships = userDocSnapshot.data()?.memberships || [];
+
+            const subscribed = userMemberships.includes(clubId);
+            setIsSubscribed(subscribed);
+          }
+        } catch (error) {
+          console.error(
+            "Error al verificar la suscripción del usuario al club:",
+            error
+          );
+        }
+      }
+    };
+
     if (clubId) {
       fetchClubData();
+      checkSubscription();
     }
-  }, [clubId]);
+  }, [clubId, user]);
 
-  const handleSubscribe = () => {
-    const isConfirmed = window.confirm(
-      "¿Estás seguro que deseas suscribirte a este club?"
-    );
-
-    if (isConfirmed) {
-      setIsSubscribed((prevState) => !prevState);
-      if (!userClubs.includes(clubId)) {
-        setUserClubs((prevClubs) => [...prevClubs, clubId]);
-
-        console.log(
-          `Añadiendo club ${clubId} a la lista de clubes del usuario`
+  const handleSubscribe = async () => {
+    if (user) {
+      try {
+        const userQuerySnapshot = await getDocs(
+          query(collection(db, "users"), where("email", "==", user.email))
         );
+
+        if (userQuerySnapshot.size > 0) {
+          const userDocSnapshot = userQuerySnapshot.docs[0];
+          const userDocRef = doc(db, "users", userDocSnapshot.id);
+
+          const userMemberships = userDocSnapshot.data()?.memberships || [];
+
+          if (isSubscribed) {
+            // Usuario está suscrito, proceder con cancelar suscripción
+            const shouldUnsubscribe = window.confirm(
+              "¿Estás seguro que deseas cancelar la suscripción a este club?"
+            );
+
+            if (shouldUnsubscribe) {
+              const updatedMemberships = userMemberships.filter(
+                (id) => id !== clubId
+              );
+
+              await updateDoc(userDocRef, { memberships: updatedMemberships });
+
+              console.log(`Usuario canceló la suscripción al club ${clubId}`);
+              setIsSubscribed(false);
+            }
+          } else {
+            // Usuario no está suscrito, proceder con suscripción
+            const shouldSubscribe = window.confirm(
+              "¿Estás seguro que deseas unirte a este club?"
+            );
+
+            if (shouldSubscribe) {
+              const updatedMemberships = [...userMemberships, clubId];
+
+              await updateDoc(userDocRef, { memberships: updatedMemberships });
+
+              console.log(`Usuario se unió al club ${clubId}`);
+              setIsSubscribed(true);
+            }
+          }
+        } else {
+          console.error(
+            "No se encontró un documento del usuario con ese correo electrónico"
+          );
+        }
+      } catch (error) {
+        console.error("Error al manejar la suscripción al club:", error);
       }
     }
   };
