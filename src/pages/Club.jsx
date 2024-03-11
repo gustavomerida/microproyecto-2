@@ -3,6 +3,8 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import styles from "../components/Club.module.css";
 import fetchGameDetails from "../services/videogames.js";
+import { useParams } from "react-router-dom";
+import AppLayout from "../layout/AppLayout";
 
 export default function Club() {
   const [clubData, setClubData] = useState();
@@ -11,8 +13,9 @@ export default function Club() {
   const [, setGameImageIds] = useState([]);
   const [backgroundImage, setBackgroundImage] = useState("");
   const [gameDetails, setGameDetails] = useState([]);
+  const { id } = useParams();
 
-  const clubId = "5";
+  const clubId = id;
 
   useEffect(() => {
     const fetchClubData = async () => {
@@ -59,14 +62,14 @@ export default function Club() {
   };
 
   return (
-    <>
+    <AppLayout>
       <div className={styles.container}>
         <div>
           <button className={styles.backButton}>Regresar</button>
         </div>
         {clubData ? (
           <div className={styles.clubContainer}>
-            <h1>{clubData.nombre}</h1>
+            <div className={styles.text}>{clubData.nombre}</div>
             <p>{clubData.descripcion}</p>
             <div className={styles.gamesContainer}>
               {gameDetails.map((gameDetail) => (
@@ -96,19 +99,21 @@ export default function Club() {
       <style>
         {`
           body {
+            margin: 0;
+            padding: 0;
             background-image: url("${backgroundImage}");
             background-size: cover;
+            background-repeat: no-repeat; 
+            background-attachment: fixed;
             background-position: center;
             box-sizing: border-box;
-            margin: 0;
-            padding: 32px;
-            min-height: 100vh;
             display: flex;
+            height: 100vh;
             justify-content: center;
             align-items: center;
           }
         `}
       </style>
-    </>
+    </AppLayout>
   );
 }

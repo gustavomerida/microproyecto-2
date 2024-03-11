@@ -1,16 +1,6 @@
 body {
-  background-image: url("/src/assets/images/Club/1.jpg");
-  background-size: cover;
-  background-position: center;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 32px;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 100%;
 }
-
 .header {
   background-color: #1a1a1a;
   padding: 10px;
@@ -20,6 +10,10 @@ body {
   position: fixed;
   width: 100%;
   border-radius: 4px;
+}
+.text {
+  font-size: 34px;
+  font-weight: bold;
 }
 
 .backButton {
@@ -37,14 +31,18 @@ body {
   background-color: white;
   border-radius: 15px;
   width: 650px;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .clubDetails {
+  text-align: center;
+}
+
+.clubContainer {
   text-align: center;
 }
 

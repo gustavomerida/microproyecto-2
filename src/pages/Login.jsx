@@ -36,7 +36,7 @@ function Login() {
       navigate("/");
       console.log(user);
     } else {
-      alert("No se pudo iniciar sesión");
+      alert("No se pudo iniciar sesión. Correo o contraseña incorrecta.");
     }
   };
 
@@ -98,7 +98,7 @@ function Login() {
       </button>{" "}
       {/* Aplica la clase de estilo al botón */}
       <div className={styles.mensaje}>
-        ¿No tienes cuenta?. <a href='./register'>Registrarse</a>
+        ¿No tienes cuenta? <a href="./register">Registrarse</a>
       </div>
     </div>
   );
