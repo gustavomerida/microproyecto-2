@@ -146,7 +146,7 @@ export default function Club() {
               {gameDetails.map((gameDetail) => (
                 <div key={gameDetail.id} className={styles.gameCard}>
                   <img
-                    src={`/src/assets/images/Club/Games/${gameDetail.id}.jpg`}
+                    src={`../src/assets/images/Club/Games/${gameDetail.id}.jpg`}
                     alt={`Game ${gameDetail.id}`}
                     className={styles.gameImage}
                   />

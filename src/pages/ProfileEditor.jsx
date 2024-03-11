@@ -28,6 +28,9 @@ function ProfileEditor() {
   const [loading, setLoading] = useState(true);
   const [showSelectGame, setShowSelectGame] = useState(false);
   const [gameTitle, setGameTitle] = useState("");
+  const [subs, setSubs] = useState([]);
+  const [membresias, setMembresias] = useState([]);
+  const [clubs, setClubs] = useState([]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -92,9 +95,11 @@ function ProfileEditor() {
     }
   }, [users]);
 
+
   useEffect(() => {
     if (selectedGame != "") {
       setGameTitle(gameOptions.find((game) => game.id == selectedGame).titulo);
+
     }
   }, [selectedGame, gameOptions]);
 
@@ -123,6 +128,7 @@ function ProfileEditor() {
           name: nameInput,
           last_name: last_nameInput,
           videogame: selectedGame,
+
         });
 
         // Navegar a la página principal
@@ -190,6 +196,7 @@ function ProfileEditor() {
         />
         <label>Apellido:</label>
         <input
+
           className={styles.formInput}
           type="name"
           value={last_nameInput}
