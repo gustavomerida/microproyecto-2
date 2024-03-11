@@ -15,6 +15,8 @@ import AppLayout from "../layout/AppLayout.jsx";
 import { useParams } from "react-router-dom";
 import { useUser } from "../context/user";
 
+import imagen1 from "../assets/images/Club/1.jpg"
+
 export default function Club() {
   const [clubData, setClubData] = useState();
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -38,8 +40,9 @@ export default function Club() {
         const videojuegoIds = clubDataFromFirebase.videojuegos || [];
         setGameImageIds(videojuegoIds);
 
+        // eslint-disable-next-line no-unused-vars
         const imageUrl = `/src/assets/images/Club/${clubId}.jpg`;
-        setBackgroundImage(imageUrl);
+        setBackgroundImage(imagen1);
 
         const details = await fetchGameDetails(videojuegoIds);
         setGameDetails(details);
