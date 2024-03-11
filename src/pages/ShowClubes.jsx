@@ -61,7 +61,7 @@ function ShowClubes() {
   };
 
   return (
-    <AppLayout>
+    <>
       <div className={styles.container}>
         <Slider {...settings}>
           {clubs.map((club) => (
@@ -76,7 +76,7 @@ function ShowClubes() {
           ))}
         </Slider>
       </div>
-    </AppLayout>
+    </>
   );
 }
 

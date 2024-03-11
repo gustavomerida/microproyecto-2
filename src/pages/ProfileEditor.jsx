@@ -23,6 +23,9 @@ function ProfileEditor() {
   const [loading, setLoading] = useState(true);
   const [showSelectGame, setShowSelectGame] = useState(false);
   const [gameTitle, setGameTitle] = useState("");
+  const [subs, setSubs] = useState([]);
+  const [membresias, setMembresias] = useState([]);
+  const [clubs, setClubs] = useState([]);
 
 
   useEffect(() => {
@@ -86,11 +89,12 @@ function ProfileEditor() {
       }
     }
   }, [users]);
-
+  
   useEffect(()=>{
     if (selectedGame!=""){
         setGameTitle(gameOptions.find((game) => game.id == selectedGame).titulo)
-
+        
+        //setSubs(membresias.map((clubId) => ))
     }
   }, [selectedGame, gameOptions]);
 
