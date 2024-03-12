@@ -114,7 +114,7 @@ function Login() {
           className={styles.loginButton}
           onClick={handleLogin}
         >
-          Iniciar Sesión con Email
+          Iniciar sesión con email
         </button>{" "}
         {/* Aplica la clase de estilo al botón */}
       </form>
@@ -123,7 +123,7 @@ function Login() {
         className={styles.socialButton}
         onClick={handleLogin_Google}
       >
-        Iniciar Sesión con Google
+        Iniciar sesión con Google
       </button>{" "}
       {/* Aplica la clase de estilo al botón */}
       
