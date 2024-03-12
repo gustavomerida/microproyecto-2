@@ -156,7 +156,7 @@ function Register() {
           onClick={handleLogin}
           disabled={isFieldsEmpty}
         >
-          Registrarse con Email
+          Registrarse con email
         </button>{" "}
         {/* Aplica la clase de estilo al botón */}
       </form>
@@ -165,11 +165,11 @@ function Register() {
         className={styles.socialButton}
         onClick={handleLogin_Google}
       >
-        Iniciar Sesión con Google
+        Iniciar sesión con Google
       </button>{" "}
       {/* Aplica la clase de estilo al botón */}
       <button type="button" className={styles.socialButton}>
-        Iniciar Sesión con Facebook
+        Iniciar sesión con Facebook
       </button>{" "}
       {/* Aplica la clase de estilo al botón */}
       <div className={styles.mensaje}>

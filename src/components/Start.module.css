@@ -1,0 +1,45 @@
+:root {
+  font-family: Quicksand, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  justify-content: center;
+}
+
+.logo {
+  width: 260px;
+  height: 160px;
+  margin: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  gap: 30px;
+}
+
+.button {
+  width: 50%;
+  padding: 10px;
+  margin-top: -15px;
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

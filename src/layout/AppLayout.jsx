@@ -9,28 +9,27 @@ import { logOut } from "../controllers/auth";
 import NavigationBar from "../components/NavigationBar";
 
 export default function AppLayout({ children }) {
-  
-    const user = useUser();
-    const navigate = useNavigate();
-    const [loading, setLoading] = useState(true);
-  
-    useEffect(() => {
-      const timeout = setTimeout(() => {
-        setLoading(false);
-      }, 2000); // Adjust the timeout value as needed
-  
-      return () => clearTimeout(timeout);
-    }, []);
-  
-    useEffect(() => {
-      if (!loading && user === null) {
-        navigate("/login", { replace: true });
-      }
-    }, [user, loading, navigate]);
+  const user = useUser();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Adjust the timeout value as needed
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  useEffect(() => {
+    if (!loading && user === null) {
+      navigate("/start", { replace: true });
+    }
+  }, [user, loading, navigate]);
 
   return (
     <div>
-        <NavigationBar></NavigationBar>
+      <NavigationBar></NavigationBar>
       <main>{children}</main>
     </div>
   );
