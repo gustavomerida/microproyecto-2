@@ -53,7 +53,13 @@
   background-color: #2d4373; /* Darker Facebook color on hover */
 }
 
-.mensaje{
+.mensaje {
   font-size: 10px;
-  color: rgb(66, 64, 64)
+  color: rgb(66, 64, 64);
+}
+
+.disabledInput {
+  background-color: #f2f2f2;
+  color: #808080;
+  cursor: not-allowed;
 }

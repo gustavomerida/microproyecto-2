@@ -2,10 +2,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-//import Input from '../components/Input'
-//import Button from '../components/Button'
 import { useUser } from "../context/user";
-import { registerWithCredentials } from "../controllers/auth";
 import styles from "./Register.module.css";
 import { auth, googleProvider } from "../firebase";
 import { db } from "../firebase.js";
@@ -65,7 +62,7 @@ function Register() {
           name: nameInput,
           last_name: lastnameInput,
           username: "",
-          email: emailInput,
+          email: emailInput.toLowerCase(),
           videogame: "",
           memberships: [],
         });
@@ -95,15 +92,15 @@ function Register() {
         name: firstName,
         last_name: lastName,
         username: "",
-        email: user.user.email,
+        email: user.user.email.toLowerCase(),
         videogame: "",
         memberships: [],
       });
 
       console.log("Nombre:", firstName);
       console.log("Apellido:", lastName);
-      alert("Registro exitoso");
       navigate("/register2");
+      alert("Registro exitoso");
       console.log(user);
     } else if (!data.isNewUser) {
       navigate("/");

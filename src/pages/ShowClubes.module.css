@@ -1,3 +1,13 @@
 .card {
-    margin-bottom: 20px;
-  }
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.container {
+  padding: 24px;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 70%;
+}

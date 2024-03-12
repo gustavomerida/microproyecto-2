@@ -7,7 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 import ClubCard from "../components/ClubCard";
 import { db } from "../firebase";
 import styles from "./ShowClubes.module.css";
-import AppLayout from "../layout/AppLayout";
 import { useUser } from "../context/user";
 import { checkSubscription } from "../services/checkSuscription";
 
@@ -61,22 +60,22 @@ function ShowClubes() {
   };
 
   return (
-    <>
-      <div className={styles.container}>
-        <Slider {...settings}>
-          {clubs.map((club) => (
-            <div key={club.id} className={styles.card}>
-              <ClubCard
-                key={club.id}
-                club={club}
-                checkSubscription={checkSubscription}
-                user={user}
-              />
-            </div>
-          ))}
-        </Slider>
-      </div>
-    </>
+
+    <div className={styles.container}>
+      <Slider {...settings}>
+        {clubs.map((club) => (
+          <div key={club.id} className={styles.card}>
+            <ClubCard
+              key={club.id}
+              club={club}
+              checkSubscription={checkSubscription}
+              user={user}
+            />
+          </div>
+        ))}
+      </Slider>
+    </div>
+
   );
 }
 
