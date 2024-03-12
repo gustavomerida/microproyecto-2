@@ -3,6 +3,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../components/Start.module.css";
 
+import imagen from "../assets/images/logo.jpg"
+
 export default function Start() {
   const navigate = useNavigate();
 
@@ -18,7 +20,7 @@ export default function Start() {
         <div>
           {" "}
           <img
-            src={`/src/assets/images/logo.jpg`}
+            src={imagen}
             alt={`Logo`}
             className={styles.logo}
           />
