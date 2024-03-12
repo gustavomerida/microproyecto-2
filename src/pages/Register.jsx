@@ -168,10 +168,7 @@ function Register() {
         Iniciar Sesión con Google
       </button>{" "}
       {/* Aplica la clase de estilo al botón */}
-      <button type="button" className={styles.socialButton}>
-        Iniciar Sesión con Facebook
-      </button>{" "}
-      {/* Aplica la clase de estilo al botón */}
+      
       <div className={styles.mensaje}>
         ¿Ya tienes una cuenta? <a href="./login">Inicia sesión</a>
       </div>

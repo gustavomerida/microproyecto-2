@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import {
   getDocs,
@@ -15,6 +16,32 @@ import AppLayout from "../layout/AppLayout.jsx";
 import { useParams } from "react-router-dom";
 import { useUser } from "../context/user";
 
+import bg1 from "../assets/images/Club/1.jpg";
+import bg2 from "../assets/images/Club/2.jpg";
+import bg3 from "../assets/images/Club/3.jpg";
+import bg4 from "../assets/images/Club/4.jpg";
+import bg5 from "../assets/images/Club/5.jpg";
+
+import gm1 from "../assets/images/Club/Games/1.jpg";
+import gm2 from "../assets/images/Club/Games/2.jpg";
+import gm3 from "../assets/images/Club/Games/3.jpg";
+import gm4 from "../assets/images/Club/Games/4.jpg";
+import gm7 from "../assets/images/Club/Games/7.jpg";
+import gm8 from "../assets/images/Club/Games/8.jpg";
+import gm9 from "../assets/images/Club/Games/9.jpg";
+import gm10 from "../assets/images/Club/Games/10.jpg";
+import gm11 from "../assets/images/Club/Games/11.jpg";
+import gm13 from "../assets/images/Club/Games/13.jpg";
+import gm14 from "../assets/images/Club/Games/14.jpg";
+import gm15 from "../assets/images/Club/Games/15.jpg";
+import gm16 from "../assets/images/Club/Games/16.jpg";
+import gm17 from "../assets/images/Club/Games/17.jpg";
+import gm18 from "../assets/images/Club/Games/18.jpg";
+import gm112 from "../assets/images/Club/Games/112.jpg";
+
+
+
+
 export default function Club() {
   const [clubData, setClubData] = useState();
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -25,6 +52,9 @@ export default function Club() {
 
   const clubId = id;
   const user = useUser();
+  const fondos = [bg1, bg2, bg3, bg4, bg5];
+  const juegos = {1: gm1, 2: gm2, 3: gm3, 4: gm4, 7: gm7, 8: gm8, 9: gm9, 10: gm10, 
+    11: gm11, 13: gm13, 14: gm14, 15: gm15, 16: gm16, 17: gm17, 18: gm18, 112: gm112};
 
   useEffect(() => {
     const fetchClubData = async () => {
@@ -39,7 +69,7 @@ export default function Club() {
         setGameImageIds(videojuegoIds);
 
         const imageUrl = `/src/assets/images/Club/${clubId}.jpg`;
-        setBackgroundImage(imageUrl);
+        setBackgroundImage(fondos[clubId- 1]);
 
         const details = await fetchGameDetails(videojuegoIds);
         setGameDetails(details);
@@ -146,7 +176,7 @@ export default function Club() {
               {gameDetails.map((gameDetail) => (
                 <div key={gameDetail.id} className={styles.gameCard}>
                   <img
-                    src={`../src/assets/images/Club/Games/${gameDetail.id}.jpg`}
+                    src={juegos[gameDetail.id]}
                     alt={`Game ${gameDetail.id}`}
                     className={styles.gameImage}
                   />

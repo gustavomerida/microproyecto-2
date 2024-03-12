@@ -6,9 +6,17 @@ import { Card, CardContent } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 import styles from "./ClubCard.module.css";
 
+import cl1 from "../assets/images/Club/Clubes/1.jpg";
+import cl2 from "../assets/images/Club/Clubes/2.jpg";
+import cl3 from "../assets/images/Club/Clubes/3.jpg";
+import cl4 from "../assets/images/Club/Clubes/4.jpg";
+import cl5 from "../assets/images/Club/Clubes/5.jpg";
+
 export default function ClubCard({ club, checkSubscription, user }) {
   const navigate = useNavigate();
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const clubsimg = [cl1, cl2, cl3, cl4, cl5];
+
 
   useEffect(() => {
     const fetchSubscriptionStatus = async () => {
@@ -32,7 +40,7 @@ export default function ClubCard({ club, checkSubscription, user }) {
         <div className={styles.cardTitle}>{club.nombre}</div>
         <div className={styles.cardDescription}>{club.descripcion}</div>
         <img
-          src={`/src/assets/images/Club/Clubes/${club.id}.jpg`}
+          src={clubsimg[club.id - 1]}
           alt={`Club ${club.id}`}
           className={styles.cardImage}
         />

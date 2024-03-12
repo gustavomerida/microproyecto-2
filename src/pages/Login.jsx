@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase.js";
 import { useNavigate } from "react-router-dom";
-import { auth, googleProvider } from "../firebase";
+import { auth, googleProvider, getAdditionalUserInfo } from "../firebase";
 import {
   signInWithPopup,
   signInWithRedirect,
@@ -41,8 +41,39 @@ function Login() {
   };
 
   const handleLogin_Google = async () => {
+    // const user = await signInWithPopup(auth, googleProvider);
+    // if (user !== null) {
+    //   navigate("/");
+    //   console.log(user);
+    // } else {
+    //   console.log("No se pudo autenticar al usuario con Google.");
+    //   alert(
+    //     "No se pudo iniciar sesión con Google. Por favor, inténtalo de nuevo."
+    //   );
+    // }
     const user = await signInWithPopup(auth, googleProvider);
-    if (user !== null) {
+    const data = getAdditionalUserInfo(user);
+
+    if (data.isNewUser) {
+      const userCollection = collection(db, "users");
+      const displayName = user.user.displayName;
+      const picture = user.user.photoURL;
+      const [firstName, lastName] = displayName.split(" ");
+      await addDoc(userCollection, {
+        name: firstName,
+        last_name: lastName,
+        username: "",
+        email: user.user.email.toLowerCase(),
+        videogame: "",
+        memberships: [],
+      });
+
+      console.log("Nombre:", firstName);
+      console.log("Apellido:", lastName);
+      navigate("/register2");
+      alert("Registro exitoso");
+      console.log(user);
+    } else if (!data.isNewUser) {
       navigate("/");
       console.log(user);
     } else {
@@ -93,10 +124,7 @@ function Login() {
         Iniciar Sesión con Google
       </button>{" "}
       {/* Aplica la clase de estilo al botón */}
-      <button type="button" className={styles.socialButton}>
-        Iniciar Sesión con Facebook
-      </button>{" "}
-      {/* Aplica la clase de estilo al botón */}
+      
       <div className={styles.mensaje}>
         ¿No tienes cuenta? <a href="./register">Registrarse</a>
       </div>
