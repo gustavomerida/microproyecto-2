@@ -165,9 +165,7 @@ export default function Club() {
   return (
     <AppLayout>
       <div className={styles.container}>
-        <div>
-          <button className={styles.backButton}>Regresar</button>
-        </div>
+        
         {clubData ? (
           <div className={styles.clubContainer}>
             <div className={styles.text}>{clubData.nombre}</div>

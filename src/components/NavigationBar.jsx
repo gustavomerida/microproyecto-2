@@ -18,6 +18,11 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '50px',
   },
   title: {
+    fontSize: '25px',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    font: 'inherit',
+    color: 'white',
     flexGrow: 1,
     display: 'none',
     [theme.breakpoints.up('sm')]: {
@@ -26,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
     width: '50%',
   },
   appBar: {
-    //backgroundColor: 'gray', // Cambiar color
+    backgroundColor: 'purple', // Cambiar color
+    borderRadius: '10px',
   },
   // search: {
   //   position: 'relative',

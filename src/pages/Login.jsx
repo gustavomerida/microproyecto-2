@@ -6,11 +6,13 @@ import { useEffect, useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase.js";
 import { useNavigate } from "react-router-dom";
-import { auth, googleProvider, getAdditionalUserInfo } from "../firebase";
+import { auth, googleProvider } from "../firebase";
 import {
+  getAdditionalUserInfo,
   signInWithPopup,
   signInWithRedirect,
-  getRedirectResult,
+  createUserWithEmailAndPassword,
+  fetchSignInMethodsForEmail,
 } from "firebase/auth";
 //import Input from '../components/Input'
 //import Button from '../components/Button'
